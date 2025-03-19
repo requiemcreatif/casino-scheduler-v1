@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: true,
-  experimental: {
-    forceSwcTransforms: true,
-  },
+  // Use standard output - works better with Docker
+  output: "standalone",
 };
 
 module.exports = nextConfig;

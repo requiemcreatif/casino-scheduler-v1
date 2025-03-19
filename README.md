@@ -126,7 +126,7 @@ Each role has different permissions:
 
 ## Docker Support
 
-You can also run the application using Docker:
+You can run the application using Docker:
 
 ```bash
 # Build the Docker image
@@ -136,17 +136,26 @@ docker build -t casino-scheduler .
 docker run -p 3000:3000 casino-scheduler
 ```
 
-Or use Docker Compose:
+Or use Docker Compose (recommended):
 
 ```bash
 docker-compose up
 ```
 
+### Docker Configuration
+
+The Docker setup uses Next.js in standalone mode which optimizes the image size and performance. The configuration includes:
+
+- Node.js 18 Alpine for minimal image size
+- Proper handling of Next.js application in standalone mode
+- Health checks to ensure the application is running properly
+- Production-ready environment settings
+
 ### Troubleshooting Docker Issues
 
 If you encounter dependency conflicts when building the Docker image (particularly between React 19 and testing libraries), the Dockerfile has been configured to use the `--legacy-peer-deps` flag to resolve these issues.
 
-If you still face problems, you can try:
+If you still face problems, try these solutions:
 
 ```bash
 # Force rebuild without using cache
@@ -157,6 +166,8 @@ docker-compose up
 docker build --build-arg NPM_FLAGS="--legacy-peer-deps --force" -t casino-scheduler .
 docker run -p 3000:3000 casino-scheduler
 ```
+
+If you get errors about missing .next/standalone directory, make sure your next.config.js is properly configured to use output: 'standalone' mode.
 
 ## Technical Implementation
 
