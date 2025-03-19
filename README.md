@@ -167,6 +167,23 @@ docker build --build-arg NPM_FLAGS="--legacy-peer-deps --force" -t casino-schedu
 docker run -p 3000:3000 casino-scheduler
 ```
 
+#### Fixing Next.js Font Loader and Babel Conflicts
+
+If you see an error like: `"next/font" requires SWC although Babel is being used due to a custom babel config being present`, this is due to a conflict between Next.js font system and Babel configuration. The Dockerfile has been modified to temporarily rename the Babel config during build.
+
+You can also fix this manually:
+
+```bash
+# Rename Babel config before building
+mv .babelrc.js .babelrc.js.bak
+
+# Build as normal
+npm run build
+
+# Restore Babel config (needed for tests)
+mv .babelrc.js.bak .babelrc.js
+```
+
 If you get errors about missing .next/standalone directory, make sure your next.config.js is properly configured to use output: 'standalone' mode.
 
 ## Technical Implementation

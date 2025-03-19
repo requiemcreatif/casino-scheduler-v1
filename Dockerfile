@@ -16,6 +16,9 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Rename Babel config temporarily to avoid conflicts with Next.js font loader
+RUN if [ -f ".babelrc.js" ]; then mv .babelrc.js .babelrc.js.bak; fi
+
 # Make sure Next.js knows to build in standalone mode
 # This will be merged with any existing next.config.js
 RUN echo "module.exports = { ...require('./next.config.js'), output: 'standalone' };" > next.config.docker.js
