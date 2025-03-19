@@ -13,6 +13,64 @@ A React-based application for managing casino tables, presenters, and generating
 - **Multiple View Options**: Grid and list views for presenters
 - **Custom 404 Page**: Engaging casino-themed "Page Not Found" experience with animated dice
 
+## Developer Setup
+
+### Prerequisites
+
+- Node.js 18.x or higher
+- npm 9.x or higher (or yarn/pnpm if preferred)
+- Git
+
+### Clone and Install
+
+```bash
+# Clone the repository
+git clone https://github.com/requiemcreatif/casino-scheduler-v1.git
+cd casino-scheduler
+
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### Environment Setup
+
+No environment variables are required for local development as the application uses browser localStorage to simulate a backend API. However, you can create a `.env.local` file if you want to override any Next.js defaults:
+
+```bash
+# Optional .env.local example
+NEXT_PUBLIC_APP_NAME=Casino Scheduler
+```
+
+### Running the Application
+
+```bash
+# Start the development server
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+
+# Build for production
+npm run build
+
+# Start the production server
+npm start
+```
+
+### Project Structure
+
+- `/app` - Next.js application routes and pages
+- `/components` - Reusable React components
+- `/lib` - Utility functions and API simulation
+- `/models` - Business logic and data models
+- `/providers` - React context providers
+- `/app/mocks` - Mock data for development and testing
+
 ## Scheduling Algorithm
 
 The scheduler generates rotation schedules for game presenters across tables, ensuring:
@@ -82,6 +140,22 @@ Or use Docker Compose:
 
 ```bash
 docker-compose up
+```
+
+### Troubleshooting Docker Issues
+
+If you encounter dependency conflicts when building the Docker image (particularly between React 19 and testing libraries), the Dockerfile has been configured to use the `--legacy-peer-deps` flag to resolve these issues.
+
+If you still face problems, you can try:
+
+```bash
+# Force rebuild without using cache
+docker-compose build --no-cache app
+docker-compose up
+
+# Or run with explicit npm flags
+docker build --build-arg NPM_FLAGS="--legacy-peer-deps --force" -t casino-scheduler .
+docker run -p 3000:3000 casino-scheduler
 ```
 
 ## Technical Implementation

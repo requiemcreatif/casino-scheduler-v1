@@ -5,9 +5,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NPM_FLAGS=--legacy-peer-deps
     ports:
       - "3000:3000"
     restart: always
     environment:
       - NODE_ENV=production
       - HOSTNAME=0.0.0.0
+    # Uncomment this lines for development with volume mounting
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    #   - /app/.next
