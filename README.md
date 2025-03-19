@@ -29,7 +29,7 @@ git clone https://github.com/requiemcreatif/casino-scheduler-v1.git
 cd casino-scheduler
 
 # Install dependencies
-npm install
+npm install # or npm install --legacy-peer-deps
 # or
 yarn install
 # or
