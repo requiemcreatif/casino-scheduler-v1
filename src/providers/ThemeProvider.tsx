@@ -16,7 +16,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    // Check for saved theme preference in localStorage or system preference
     const savedTheme = localStorage.getItem("theme") as Theme;
 
     if (savedTheme) {

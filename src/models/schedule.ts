@@ -75,16 +75,6 @@ export const generateShiftSchedule = (
     return [];
   }
 
-  // Calculate the ideal number of presenters per rotation (tables + 1 for a break)
-  //const idealPresentersCount = activeTables.length + 1;
-
-  // If we have fewer presenters than tables, we can't staff all tables
-  if (shiftPresenters.length < activeTables.length) {
-    throw new Error(
-      `Not enough presenters for shift ${shift}. Need at least ${activeTables.length}.`
-    );
-  }
-
   // Generate time slots for this shift
   const timeSlots = generateTimeSlots(shift);
 
@@ -92,6 +82,38 @@ export const generateShiftSchedule = (
   const schedule: RotationSlot[][] = [];
   for (let i = 0; i < shiftPresenters.length; i++) {
     schedule.push([]);
+  }
+
+  /* Handle case where we have fewer presenters than tables
+  This approach prioritizes tables with lower numbers and ensures breaks
+  For example, with 4 presenters and 8 tables, we'll schedule tables 1, 2, and 3 (4-1=3)
+  This meets the requirement of having a game presenter at every included table at all times */
+  let tablesInRotation = activeTables;
+  if (shiftPresenters.length < activeTables.length) {
+    // If we have insufficient presenters, prioritize tables with lower numbers (assumed to be more important)
+    const sortedTables = [...activeTables].sort((a, b) => a.number - b.number);
+
+    // Only include as many tables as we have presenters
+    // We need at least one break in rotation, so use presenters.length - 1 tables
+    const maxTables = Math.max(1, shiftPresenters.length - 1);
+    tablesInRotation = sortedTables.slice(0, maxTables);
+
+    // Log which tables are included in rotation
+    // const includedTableNumbers = tablesInRotation
+    //   .map((t) => t.number)
+    //   .join(", ");
+    // const excludedTableNumbers = sortedTables
+    //   .slice(maxTables)
+    //   .map((t) => t.number)
+    //   .join(", ");
+
+    // console.log(
+    //   `${shift} shift: Using ${maxTables} tables out of ${activeTables.length} due to limited presenters`
+    // );
+    //console.log(`${shift} shift: Including tables: ${includedTableNumbers}`);
+    // if (excludedTableNumbers) {
+    //   console.log(`${shift} shift: Excluding tables: ${excludedTableNumbers}`);
+    // }
   }
 
   // Assign presenters to tables and breaks for each time slot
@@ -112,12 +134,12 @@ export const generateShiftSchedule = (
 
       // Calculate position in rotation
       const positionInRotation =
-        (presenterIndex + slotIndex) % (activeTables.length + 1);
+        (presenterIndex + slotIndex) % (tablesInRotation.length + 1);
 
       // Determine assignment based on position
       let assignment = "Break";
-      if (positionInRotation < activeTables.length) {
-        assignment = `Table ${activeTables[positionInRotation].number}`;
+      if (positionInRotation < tablesInRotation.length) {
+        assignment = `Table ${tablesInRotation[positionInRotation].number}`;
       }
 
       // Add slot to schedule
