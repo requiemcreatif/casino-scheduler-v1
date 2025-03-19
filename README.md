@@ -69,12 +69,7 @@ pnpm install
 
 ### Environment Setup
 
-No environment variables are required for local development as the application uses browser localStorage to simulate a backend API. However, you can create a `.env.local` file if you want to override any Next.js defaults:
-
-```bash
-# Optional .env.local example
-NEXT_PUBLIC_APP_NAME=Casino Scheduler
-```
+No environment variables are required for local development as the application uses browser localStorage to simulate a backend API.
 
 ### Running the Application
 
