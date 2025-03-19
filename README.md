@@ -1,6 +1,15 @@
 # Casino Scheduler Application
 
-A React-based application for managing casino tables, presenters, and generating rotation schedules.
+<div align="center">
+  <img src="https://casino-scheduler-v1.vercel.app/images/dashboard.png" alt="Casino Scheduler Dashboard" width="800"/>
+  <p><em>Smart scheduling for casino operations</em></p>
+</div>
+
+A React-based application for managing casino tables, presenters, and generating rotation schedules. The application features an intuitive user interface with comprehensive management tools for casino operations.
+
+### Live Demo:
+
+🎮 [Casino Scheduler Live App](https://casino-scheduler-v1.vercel.app/dashboard)
 
 ## Features
 
@@ -12,6 +21,28 @@ A React-based application for managing casino tables, presenters, and generating
 - **Responsive Design**: Works on desktop and mobile devices
 - **Multiple View Options**: Grid and list views for presenters
 - **Custom 404 Page**: Engaging casino-themed "Page Not Found" experience with animated dice
+
+## Screenshots
+
+### Dashboard Overview
+
+![Dashboard Overview](https://casino-scheduler-v1.vercel.app/images/dashboard.png)
+_The main dashboard provides a quick overview of key metrics and casino operations._
+
+### Casino Tables Management
+
+![Casino Tables](https://casino-scheduler-v1.vercel.app/images/casino_tables.png)
+_Manage all your casino tables including their status, game type, and availability._
+
+### Game Presenters
+
+![Game Presenters](https://casino-scheduler-v1.vercel.app/images/game_presenters.png)
+_View and manage your team of presenters with their availability and skills._
+
+### Presenter Schedule
+
+![Presenter Schedule](https://casino-scheduler-v1.vercel.app/images/presenter_schedule.png)
+_The automated scheduling system ensures optimal presenter rotation for all tables._
 
 ## Developer Setup
 
@@ -62,6 +93,13 @@ npm run build
 npm start
 ```
 
+When running locally, screenshots can be viewed at:
+
+- http://localhost:3000/images/dashboard.png
+- http://localhost:3000/images/casino_tables.png
+- http://localhost:3000/images/game_presenters.png
+- http://localhost:3000/images/presenter_schedule.png
+
 ### Project Structure
 
 - `/app` - Next.js application routes and pages
@@ -70,6 +108,7 @@ npm start
 - `/models` - Business logic and data models
 - `/providers` - React context providers
 - `/app/mocks` - Mock data for development and testing
+- `/public/images` - Application screenshots and images
 
 ## Scheduling Algorithm
 
@@ -198,6 +237,8 @@ If you get errors about missing .next/standalone directory, make sure your next.
 - Shadcn Library
 - Local storage for data persistence (simulating an API)
 - React Context for state management
+- Responsive UI design with clean visual hierarchy
+- Application screenshots available in the `/public/images` directory
 
 ## Testing
 
