@@ -153,7 +153,11 @@ The Docker setup uses Next.js in standalone mode which optimizes the image size 
 
 ### Troubleshooting Docker Issues
 
-If you encounter dependency conflicts when building the Docker image (particularly between React 19 and testing libraries), the Dockerfile has been configured to use the `--legacy-peer-deps` flag to resolve these issues.
+If you encounter dependency conflicts when building the Docker image (particularly between React and testing libraries), the following has been done to resolve these issues:
+
+1. **React Version**: The project now uses React 18.2.0 instead of React 19 to avoid compatibility issues with testing libraries and other dependencies.
+2. **Legacy Peer Deps**: The Dockerfile has been configured to use the `--legacy-peer-deps` flag when installing dependencies.
+3. **Multiple Package Managers**: The Docker build now supports both npm and yarn for better compatibility.
 
 If you still face problems, try these solutions:
 
