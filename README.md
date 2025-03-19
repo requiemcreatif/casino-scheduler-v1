@@ -5,7 +5,7 @@
   <p><em>Smart scheduling for casino operations</em></p>
 </div>
 
-A React-based application for managing casino tables, presenters, and generating rotation schedules. The application features an intuitive user interface with comprehensive management tools for casino operations.
+A Nextjs application for managing casino tables, presenters, and generating rotation schedules.
 
 ### Live Demo:
 
@@ -282,35 +282,12 @@ The test suite covers:
 - Component tests for UI components
 - Integration tests for key workflows
 
-### Writing Tests
-
-When writing tests:
-
-1. Use descriptive test names
-2. Follow the Arrange-Act-Assert pattern
-3. Mock external dependencies
-4. Test both success and error cases
-
 ## Limitations and Future Improvements
 
 - Currently uses browser localStorage instead of a real backend
+- Create a database
+- Using proper statement management (React query for CRUD and state management)
 - Could add more sophisticated scheduling algorithms
 - Would benefit from real-time updates between multiple users
+- Design improvements (Adding more pages, components, animations)
 - Additional test coverage needed
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
