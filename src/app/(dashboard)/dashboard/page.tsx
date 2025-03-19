@@ -363,7 +363,7 @@ export default function DashboardPage() {
           </Button>
 
           <Button
-            onClick={() => router.push("/presenters/new")}
+            onClick={() => router.push("/presenters/create")}
             variant="outline"
             className="h-auto py-5 px-4 flex flex-col items-center justify-center hover:bg-green-50 dark:hover:bg-green-900/20"
           >
@@ -372,7 +372,7 @@ export default function DashboardPage() {
           </Button>
 
           <Button
-            onClick={() => router.push("/tables/new")}
+            onClick={() => router.push("/tables/create")}
             variant="outline"
             className="h-auto py-5 px-4 flex flex-col items-center justify-center hover:bg-blue-50 dark:hover:bg-blue-900/20"
           >
