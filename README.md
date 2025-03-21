@@ -117,7 +117,7 @@ The scheduler generates rotation schedules for game presenters across tables, en
 
 When there aren't enough presenters to staff all tables:
 
-1. The algorithm prioritizes tables with lower numbers (1, 2, 3, etc.)
+1. The algorithm gives priority to the tables with lower numbers (1, 2, 3, etc.)
 2. It staffs a maximum of (presenters - 1) tables to ensure breaks
 3. Tables are selected in ascending order of table number
 4. Each presenter still receives regular breaks
@@ -191,9 +191,8 @@ If you encounter dependency conflicts when building the Docker image (particular
 
 1. **React Version**: The project now uses React 18.2.0 instead of React 19 to avoid compatibility issues with testing libraries and other dependencies.
 2. **Legacy Peer Deps**: The Dockerfile has been configured to use the `--legacy-peer-deps` flag when installing dependencies.
-3. **Multiple Package Managers**: The Docker build now supports both npm and yarn for better compatibility.
 
-If you still face problems, try these solutions:
+If you still face problems, try these solutions to run or build the app:
 
 ```bash
 # Force rebuild without using cache
@@ -265,7 +264,7 @@ The test suite currently has the following coverage:
 
 Areas for improvement:
 
-- Additional tests for UI components, particularly modals
+- Additional tests for UI components, particularly for the modals
 - More comprehensive testing of edge cases in component interactions
 - Increase branch coverage (currently ~52%)
 

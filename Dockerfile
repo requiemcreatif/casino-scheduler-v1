@@ -1,3 +1,6 @@
+# I had some issues with the Dockerfile, so I decided to use the one from the Next.js documentation
+# https://nextjs.org/docs/app/building-your-application/deploying#docker-image
+
 FROM node:18-alpine AS base
 
 # Install additional tools
@@ -29,7 +32,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Rename Babel config temporarily to avoid conflicts with Next.js font loader
 RUN if [ -f ".babelrc.js" ]; then mv .babelrc.js .babelrc.js.bak; fi
 
-# Make sure Next.js knows to build in standalone mode
+# To make sure Next.js knows to build in standalone mode
 # This will be merged with any existing next.config.js
 RUN echo "module.exports = { ...require('./next.config.js'), output: 'standalone' };" > next.config.docker.js
 RUN mv next.config.docker.js next.config.js
@@ -53,7 +56,6 @@ COPY --from=builder /app/public ./public
 RUN mkdir -p .next
 RUN chown nextjs:nodejs .next
 
-# Use a conditional approach for copying .next files
 # Copy either standalone mode or regular .next folder
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules

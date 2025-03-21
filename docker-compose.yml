@@ -27,7 +27,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    # Uncomment this lines for development with volume mounting
     # volumes:
     #   - .:/app
     #   - /app/node_modules

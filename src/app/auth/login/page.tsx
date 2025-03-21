@@ -5,7 +5,6 @@ import { useAuth } from "@/providers/AuthProvider";
 import { useRouter } from "next/navigation";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
-// Reusable form input component
 const FormInput = ({
   id,
   label,
@@ -45,7 +44,6 @@ const FormInput = ({
   </div>
 );
 
-// Password input with toggle visibility
 const PasswordInput = ({
   id,
   label,

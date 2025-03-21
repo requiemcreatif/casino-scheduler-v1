@@ -32,7 +32,6 @@ interface PresenterListProps {
   isLoading: boolean;
 }
 
-// Skeleton components
 const SkeletonItem = ({
   width,
   height = "h-5",

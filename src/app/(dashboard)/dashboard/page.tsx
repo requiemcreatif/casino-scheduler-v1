@@ -17,7 +17,6 @@ import {
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 
-// Reusable skeleton card component
 const SkeletonCard = () => (
   <Card className="overflow-hidden shadow-md">
     <CardContent className="p-6 flex items-center">
@@ -33,7 +32,6 @@ const SkeletonCard = () => (
   </Card>
 );
 
-// Reusable summary card component
 const SummaryCard = ({
   icon,
   iconBgClass,
@@ -81,7 +79,6 @@ const SummaryCard = ({
   </Card>
 );
 
-// Reusable shift card component
 const ShiftCard = ({
   title,
   color,

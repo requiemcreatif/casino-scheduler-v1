@@ -25,7 +25,7 @@ export interface RotationSlot {
   endTime: string;
   presenterId: string;
   presenterName: string;
-  assignment: string; // 'Table 1', 'Table 2', 'Break'
+  assignment: string;
 }
 
 export interface DailySchedule {

@@ -260,7 +260,6 @@ export const PresenterForm: React.FC<PresenterFormProps> = ({
       active,
     };
 
-    // If this is an update (not a new presenter), show confirmation modal
     if (initialData?.id) {
       setFormData(data);
       setShowConfirmModal(true);
